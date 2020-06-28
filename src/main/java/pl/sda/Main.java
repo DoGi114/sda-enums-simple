@@ -32,9 +32,7 @@ public class Main {
             answerStringBuilder.append(surname);
             answerStringBuilder.append(";");
             System.out.println("Czy makaron jest Twoim ulubionym daniem?");
-            for(Answer answer : Answer.values()){
-                System.out.println(String.format("%s. %s", answer.ordinal() + 1, answer));
-            }
+            getAllPossibleAnswers();
             pastaAnswer = Answer.valueOfDisplayText(scanner.nextLine());
             if(pastaAnswer == null){
                 System.err.println("Your answer is not valid.");
@@ -43,9 +41,7 @@ public class Main {
             answerStringBuilder.append(pastaAnswer);
             answerStringBuilder.append(";");
             System.out.println("Czy pogoda ostatnio była ładna?");
-            for(Answer answer : Answer.values()){
-                System.out.println(String.format("%s. %s", answer.ordinal() + 1, answer));
-            }
+            getAllPossibleAnswers();
             weatherAnswer = Answer.valueOfDisplayText(scanner.nextLine());
             if(weatherAnswer == null){
                 System.err.println("Your answer is not valid.");
@@ -54,9 +50,7 @@ public class Main {
             answerStringBuilder.append(weatherAnswer);
             answerStringBuilder.append(";");
             System.out.println("Czy ostry jest cień mgły?");
-            for(Answer answer : Answer.values()){
-                System.out.println(String.format("%s. %s", answer.ordinal() + 1, answer));
-            }
+            getAllPossibleAnswers();
             fogAnswer = Answer.valueOfDisplayText(scanner.nextLine());
             if(fogAnswer == null){
                 System.err.println("Your answer is not valid.");
@@ -66,7 +60,7 @@ public class Main {
             answerStringBuilder.append(System.lineSeparator());
 
             try {
-                Files.writeString(Paths.get(ANSWER_FILE_NAME), answerStringBuilder.toString(), StandardOpenOption.APPEND);
+                Files.writeString(Paths.get(ANSWER_FILE_NAME), answerStringBuilder.toString(), StandardOpenOption.APPEND, StandardOpenOption.CREATE);
             } catch (IOException e) {
                 System.err.println("No such a directory.");
             }
@@ -88,6 +82,12 @@ public class Main {
             }
         }
 
+    }
+
+    private static void getAllPossibleAnswers() {
+        for (Answer answer : Answer.values()) {
+            System.out.println(String.format("%s. %s", answer.ordinal() + 1, answer));
+        }
     }
 
     private static void printMenu() {

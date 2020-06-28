@@ -9,11 +9,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    /* Cel - napisanie prostej ankiety z zapisem do pliku.
-     * Uruchom aplikację.
-     * Co się stało? Czy są wady takiego podejścia?
-     */
-
     private static final String ANSWER_FILE_NAME = "Answers.txt";
 
     public static void main(String[] args) {
@@ -56,6 +51,7 @@ public class Main {
             }
             fogAnswer = Answer.valueOfDisplayText(scanner.nextLine());
             answerStringBuilder.append(fogAnswer);
+            answerStringBuilder.append(System.lineSeparator());
 
             try {
                 Files.writeString(Paths.get(ANSWER_FILE_NAME), answerStringBuilder.toString(), StandardOpenOption.APPEND);

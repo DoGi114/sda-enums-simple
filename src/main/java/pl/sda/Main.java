@@ -17,17 +17,16 @@ public class Main {
     private static final String ANSWER_FILE_NAME = "Answers.txt";
 
     public static void main(String[] args) {
-
+        String name;
+        String surname;
+        Answer pastaAnswer;
+        Answer weatherAnswer;
+        Answer fogAnswer;
 
         Scanner scanner = new Scanner(System.in);
         printMenu();
         String modeChoice = scanner.nextLine();
         if ("1".equals(modeChoice)) {
-            String name;
-            String surname;
-            Answer pastaAnswer;
-            Answer weatherAnswer;
-            Answer fogAnswer;
             StringBuilder answerStringBuilder = new StringBuilder();
             System.out.println("Imie:");
             name = scanner.nextLine();
@@ -65,11 +64,6 @@ public class Main {
             }
         } else {
             try {
-                String name;
-                String surname;
-                Answer pastaAnswer;
-                Answer weatherAnswer;
-                Answer fogAnswer;
                 List<String> resultList = Files.readAllLines(Paths.get(ANSWER_FILE_NAME));
                 System.out.println("Results:");
                 for(String record : resultList){

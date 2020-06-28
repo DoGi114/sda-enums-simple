@@ -36,6 +36,10 @@ public class Main {
                 System.out.println(String.format("%s. %s", answer.ordinal() + 1, answer));
             }
             pastaAnswer = Answer.valueOfDisplayText(scanner.nextLine());
+            if(pastaAnswer == null){
+                System.err.println("Your answer is not valid.");
+                System.exit(1);
+            }
             answerStringBuilder.append(pastaAnswer);
             answerStringBuilder.append(";");
             System.out.println("Czy pogoda ostatnio była ładna?");
@@ -43,6 +47,10 @@ public class Main {
                 System.out.println(String.format("%s. %s", answer.ordinal() + 1, answer));
             }
             weatherAnswer = Answer.valueOfDisplayText(scanner.nextLine());
+            if(weatherAnswer == null){
+                System.err.println("Your answer is not valid.");
+                System.exit(1);
+            }
             answerStringBuilder.append(weatherAnswer);
             answerStringBuilder.append(";");
             System.out.println("Czy ostry jest cień mgły?");
@@ -50,6 +58,10 @@ public class Main {
                 System.out.println(String.format("%s. %s", answer.ordinal() + 1, answer));
             }
             fogAnswer = Answer.valueOfDisplayText(scanner.nextLine());
+            if(fogAnswer == null){
+                System.err.println("Your answer is not valid.");
+                System.exit(1);
+            }
             answerStringBuilder.append(fogAnswer);
             answerStringBuilder.append(System.lineSeparator());
 

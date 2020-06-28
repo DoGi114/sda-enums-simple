@@ -32,7 +32,10 @@ public enum Answer {
     }
 
     public static Answer valueOfDisplayText(String displayText) {
-        return map.get(displayText);
+        return map.get(Capitalize(displayText));
     }
 
+    private static String Capitalize(String str){
+        return str.substring(0, 1).toUpperCase() + str.substring(1);
+    }
 }
